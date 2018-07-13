@@ -1,7 +1,7 @@
 <?php
 require_once("inc/header.php");
 
-$page = "Signup";
+$page = "Sign up";
 
 // debug($_POST);
 
@@ -134,44 +134,69 @@ $gender = (isset($_POST['gender'])) ? $_POST['gender'] : '';
 
 ?>
 
-<h1><?= $page ?></h1>
 
-<form action="" method="post">
-    <small id="emailHelp" class="form-text text-muted">We'll never use your datas for commercial use.</small>
+<h1 class="h3 mb-3 font-weight-normal"><?= $page ?></h1>
+
+
+<form class="form-signin" action="" method="post">
+    
+    <img class="mb-4" src="uploads/img/eshop_icon2.png" alt="" width="150" height="150">
+
+    <small class="form-text text-muted"> Any information collected from our users will not be sold, shared, or rented to others in ways different from what is disclosed in our <a href="">privacy statement</a>.</small>
+
+    <br>
+
     <?= $msg_error ?>
+
+
+    <input type="text" id="inputEmail" class="form-control" placeholder="Username" name="pseudo" value="<?= $pseudo ?>">
+
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password">
+
+    <input type="firstname" name="firstname" value="<?= $firstname ?>" placeholder="Firstname" class="form-control">
+
+    <input type="lastname" name="lastname" value="<?= $lastname ?>" placeholder="Lastname" class="form-control">
+
+    <input type="email" name="email" value="<?= $email ?>" placeholder="Email" class="form-control">
+
     <div class="form-group">
-        <input type="text" name="pseudo" value="<?= $pseudo ?>"  placeholder="Choose a pseudo..." class="form-control">
-    </div>
-    <div class="form-group">
-        <input type="password" name="password" placeholder="Choose a password..." class="form-control">
-    </div>    
-    <div class="form-group">
-        <input type="firstname" name="firstname" value="<?= $firstname ?>" placeholder="Your firstname..." class="form-control">
-    </div>
-    <div class="form-group">
-        <input type="lastname" name="lastname" value="<?= $lastname ?>" placeholder="Your lastname..." class="form-control">
-    </div>
-    <div class="form-group">
-        <input type="email" name="email" value="<?= $email ?>" placeholder="Your email..." class="form-control">
-    </div>
-    <div class="form-group">
-        <select name="gender" class="form-control">
+        <select name="gender" class="form-control" style="padding: 8px;">
             <option value="m" <?php if($gender == 'm'){echo 'selected';} ?>>Men</option>
             <option value="f"<?php if($gender == 'f'){echo 'selected';} ?>>Women</option>
             <option value="o"<?php if($gender == 'o'){echo 'selected';} ?>>Other</option>
         </select>
     </div>
-    <div class="form-group">
-        <input type="text" name="address" value="<?= $address ?>" placeholder="Address..." class="form-control">
+
+    <input type="text" name="address" value="<?= $address ?>" placeholder="Address" class="form-control">
+
+    <input type="text" name="zc" value="<?= $zip_code ?>" placeholder="Zip Code" class="form-control">
+
+    <input type="text" name="city" value="<?= $city ?>" placeholder="City" class="form-control">
+
+
+    <div class="checkbox mb-2">
+        <label>
+        <input type="checkbox" value="remember-me"> Subscribe to our monthly newsletter
+        </label>
     </div>
-    <div class="form-group">
-        <input type="text" name="zc" value="<?= $zip_code ?>" placeholder="Zip code..." class="form-control">
-    </div>
-    <div class="form-group">
-        <input type="text" name="city" value="<?= $city ?>" placeholder="Your city..." class="form-control">
-    </div>
-    <input type="submit" value="Send" class="btn btn-success btn-lg btn-block"> 
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" value="login">Sign up</button>
+
+
 </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <?php
     require_once("inc/footer.php");
