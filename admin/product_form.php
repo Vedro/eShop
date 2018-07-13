@@ -131,7 +131,6 @@ $action = (isset($update_product)) ? "Update" : "Add";
 <form action="" method="post" enctype="multipart/form-data">
     <?= $msg_error ?>
     <!-- <?= $msg_success ?> -->
-
     <!-- <?= $picture_name ?> -->
     <input type="hidden" name="id_product" value="<?= $id_product ?>">
     <div class="form-group">
