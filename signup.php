@@ -131,6 +131,38 @@ $zip_code = (isset($_POST['zc'])) ? $_POST['zc'] : '';
 $city = (isset($_POST['city'])) ? $_POST['city'] : '';
 $gender = (isset($_POST['gender'])) ? $_POST['gender'] : '';
 
+if (isset($_GET['id']) && !empty($_GET['id']) && is_numeric($_GET['id'])) 
+{
+    $req = "SELECT * FROM user WHERE id_user = :id_user";
+
+    $result = $pdo->prepare($req);
+
+    $result->bindValue(':id_user', $_GET['id'], PDO::PARAM_INT);
+
+    $result->execute();
+
+    if ($result->rowCount() == 1) 
+    {
+        $update_user = $result->fetch();
+    }
+}
+// debug($update_product);
+
+$pseudo = (isset($update_user)) ? $update_user['pseudo'] : '';
+$firstname = (isset($update_user)) ? $update_user['firstname'] : '';
+$lastname = (isset($update_user)) ? $update_user['lastname'] : '';
+$email = (isset($update_user)) ? $update_user['email'] : '';
+$gender = (isset($update_user)) ? $update_user['gender'] : '';
+$city = (isset($update_user)) ? $update_user['city'] : '';
+$zip_code = (isset($update_user)) ? $update_user['zip_code'] : '';
+$picture = (isset($update_user)) ? $update_user['picture'] : '';
+$address = (isset($update_user)) ? $update_user['address'] : '';
+$privilege = (isset($update_user)) ? $update_user['privilege'] : '';
+
+$id_user = (isset($update_user)) ? $update_user['id_user'] : '';
+
+$action = (isset($update_user)) ? "Update" : "Add";
+
 
 ?>
 
