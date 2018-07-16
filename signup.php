@@ -257,31 +257,27 @@ $action = (isset($update_user)) ? "Update" : "Sign Up";
 
     <div class="form-group">
         <input type="text" name="pseudo" value="<?= $pseudo ?>"  placeholder="Choose a pseudo..." class="form-control">
+        <?php
+            if (isset($update_user)) 
+            {
+                echo "<input name='actual_pwd' value='$password' type='hidden'></input>";
+            }
+            else
+            {
+                echo '<div class="form-group">';
+                    echo '<input type="password" name="password" placeholder="Choose a password..." class="form-control">';
+                echo '</div>';
+            }
+        ?>
     </div>
-       
-    <?php
-        if (isset($update_user)) 
-        {
-            echo "<input name='actual_pwd' value='$password' type='hidden'></input>";
-        }
-        else
-        {
-            echo '<div class="form-group">';
-                echo '<input type="password" name="password" placeholder="Choose a password..." class="form-control">';
-            echo '</div>';
-        }
-
-    ?>
 
     <div class="form-group">
         <input type="firstname" name="firstname" value="<?= $firstname ?>" placeholder="Your firstname..." class="form-control">
+        <input type="lastname" name="lastname" value="<?= $lastname ?>" placeholder="Your lastname..." class="form-control">   
     </div>
-    <div class="form-group">
-        <input type="lastname" name="lastname" value="<?= $lastname ?>" placeholder="Your lastname..." class="form-control">
-    </div>
-    <div class="form-group">
-        <input type="email" name="email" value="<?= $email ?>" placeholder="Your email..." class="form-control">
-    </div>
+
+    <input type="email" name="email" value="<?= $email ?>" placeholder="Your email..." class="form-control">
+    
     <div class="form-group">
         <select name="gender" class="form-control">
             <option value="m" <?php if($gender == 'm'){echo 'selected';} ?>>Men</option>
@@ -289,31 +285,31 @@ $action = (isset($update_user)) ? "Update" : "Sign Up";
             <option value="o"<?php if($gender == 'o'){echo 'selected';} ?>>Other</option>
         </select>
     </div>
+
     <div class="form-group">
         <input type="text" name="address" value="<?= $address ?>" placeholder="Address..." class="form-control">
-    </div>
-    <div class="form-group">
         <input type="text" name="zip_code" value="<?= $zip_code ?>" placeholder="Zip code..." class="form-control">
-    </div>
-    <div class="form-group">
         <input type="text" name="city" value="<?= $city ?>" placeholder="Your city..." class="form-control">
     </div>
+
     <div class="form-group">
         <label for="user_picture">Upload your avatar...</label>
         <input type="file" class="form-control-file" id="user_picture" name="user_picture">
-    <?php
-        if (isset($update_user)) 
-        {
-            echo "<input name='actual_picture' value='$picture' type='hidden'></input>";
-            echo "<img style='width:25%;' src='". URL . "uploads/img/$picture'>";
-        }
-    ?>
+        <?php
+            if (isset($update_user)) 
+            {
+                echo "<input name='actual_picture' value='$picture' type='hidden'></input>";
+                echo "<img style='width:25%;' src='". URL . "uploads/img/$picture'>";
+            }
+        ?>
     </div>
-      <div class="checkbox mb-2">
+
+    <div class="checkbox mb-2">
         <label>
         <input type="checkbox" value="remember-me"> Subscribe to our monthly newsletter
         </label>
     </div>
+
     <input type="submit" value="<?= $action ?>" class="btn btn-primary btn-lg btn-block"> 
 
 </form>
