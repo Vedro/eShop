@@ -1,12 +1,11 @@
 <?php
 
 require_once("inc/header.php");
-
+debug($_POST);
 //$_POST
 if ($_POST) 
 {
-    //debug($_POST);
-    //$msg_error.= "blaaaaaaaaaaaaaaaaaaaaaa";
+    
 
     foreach ($_POST as $key => $value) 
     {
@@ -127,10 +126,11 @@ if ($_POST)
         $msg_error .= "<div class='alert alert-danger'>Choose a valid gender.</div>";
     }
 
-
+    debug($_POST);
 //////////////////////////IF NO ERROR////////
     if (empty($msg_error)) 
     {
+        debug($_POST);
 
         ///////////////////////////UPDATE ITSELF///////////////////////
         if (!empty($_POST['id_user']))
@@ -209,9 +209,6 @@ if (isset($_GET['id']) && !empty($_GET['id']) && is_numeric($_GET['id']))
     
     if(isset($_GET['action']) && ($_GET['action'] == 'delete'))
     {
-
-
-
         $req = "SELECT * FROM user WHERE id_user = :id_user";
     
         $result = $pdo->prepare($req);
