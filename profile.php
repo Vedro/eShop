@@ -53,8 +53,31 @@ if (isset($_GET['m']) && $_GET['m'] == 'update')
         <p class="lead"><?= $_SESSION['user']['zip_code'] . ' ' .  $_SESSION['user']['city']?></p>
         <hr class="my-4">
         <a class="btn btn-primary btn-lg" href="<?=URL?>signup.php?id=<?=$_SESSION['user']['id_user']?>"><i class='fas fa-pen'></i></a>
-        <a class="btn btn-danger btn-lg" href="?d=true" role="button">Delete account</a>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#exampleModal">Delete your account</button>
+        <!-- <a class="btn btn-danger btn-lg" href="?d=true" role="button">Delete account</a> -->
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Do you want really want to delete your account ?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Can't we really make you change your mind ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Yes I'm sure</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Finally not</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <?php
