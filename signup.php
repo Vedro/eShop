@@ -17,6 +17,10 @@ if (isset($_GET['id']) && !empty($_GET['id']) && is_numeric($_GET['id']))
     if ($result->rowCount() == 1) 
     {
         $update_user = $result->fetch();
+        // foreach ($update_user as $key => $value) 
+        //     {
+        //         $_SESSION['user'][$key] = $value;
+        //     }
     }
 }
 
@@ -133,7 +137,7 @@ if($_POST)
     }
     else 
     {
-        $picture_name = 'default.png';
+        $picture_name = 'default.jpg';
     }
 
     if (empty($msg_error)) 
@@ -173,37 +177,47 @@ if($_POST)
         $result_op->bindValue(':gender', $_POST['gender'], PDO::PARAM_STR);
         $result_op->bindValue(':city', $_POST['city'], PDO::PARAM_STR);
         $result_op->bindValue(':address', $_POST['address'], PDO::PARAM_STR);
-        $result_op->bindValue(':zip_code', $_POST['zc'], PDO::PARAM_STR);
+        $result_op->bindValue(':zip_code', $_POST['zip_code'], PDO::PARAM_STR);
         $result_op->bindValue(':picture', $picture_name, PDO::PARAM_STR);
 
         // STOPPED HERE -- define default avatar + copy img
         if ($result_op->execute()) 
         {
-            // header('location:profile.php');
+
             if (!empty($_FILES['user_picture']['name'])) 
             {
                 copy($_FILES['user_picture']['tmp_name'], $picture_path);
             }
-            
-            if (!empty($update_user['id_user'])) 
+
+            if(empty($_POST['id_user']))
             {
+                header('location:login.php');
+            }
+            else
+            {
+                $_POST['picture'] = $picture_name;
+                foreach ($_POST as $key => $value) 
+                {
+                    $_SESSION['user'][$key] = $value;
+                }
                 header('location:profile.php?m=update');
             }
+        
         }
     }
 }
 
-// Keep the values entered by the user if problem during the page reloading
-$pseudo = (isset($_POST['pseudo'])) ? $_POST['pseudo'] : '';
-// If we receive a POST, the variable will keep the values or if no POST, value is empty
-$firstname = (isset($_POST['firstname'])) ? $_POST['firstname'] : '';
-$lastname = (isset($_POST['lastname'])) ? $_POST['lastname'] : '';
-$email = (isset($_POST['email'])) ? $_POST['email'] : '';
-$address = (isset($_POST['address'])) ? $_POST['address'] : '';
-$zip_code = (isset($_POST['zc'])) ? $_POST['zc'] : '';
-$city = (isset($_POST['city'])) ? $_POST['city'] : '';
-$gender = (isset($_POST['gender'])) ? $_POST['gender'] : '';
-$picture = (isset($_POST['picture'])) ? $_POST['picture'] : '';
+// // Keep the values entered by the user if problem during the page reloading
+// $pseudo = (isset($_POST['pseudo'])) ? $_POST['pseudo'] : '';
+// // If we receive a POST, the variable will keep the values or if no POST, value is empty
+// $firstname = (isset($_POST['firstname'])) ? $_POST['firstname'] : '';
+// $lastname = (isset($_POST['lastname'])) ? $_POST['lastname'] : '';
+// $email = (isset($_POST['email'])) ? $_POST['email'] : '';
+// $address = (isset($_POST['address'])) ? $_POST['address'] : '';
+// $zip_code = (isset($_POST['zc'])) ? $_POST['zc'] : '';
+// $city = (isset($_POST['city'])) ? $_POST['city'] : '';
+// $gender = (isset($_POST['gender'])) ? $_POST['gender'] : '';
+// $picture = (isset($_POST['picture'])) ? $_POST['picture'] : '';
 
 
 $pseudo = (isset($update_user)) ? $update_user['pseudo'] : '';
@@ -225,10 +239,8 @@ $action = (isset($update_user)) ? "Update" : "Sign Up";
 // debug($_POST);
 
 ?>
-<!-- <?= debug($update_user) ?>
-<?= debug($_FILES) ?>
-<?= debug($_GET['id']); ?>
-<?= debug($_POST['id_user']); ?> -->
+<!-- <?= debug($_POST) ?>
+<?= debug($_SESSION['user'])?> -->
 
 <h1><?= $action ?></h1>
 
@@ -276,7 +288,7 @@ $action = (isset($update_user)) ? "Update" : "Sign Up";
         <input type="text" name="address" value="<?= $address ?>" placeholder="Address..." class="form-control">
     </div>
     <div class="form-group">
-        <input type="text" name="zc" value="<?= $zip_code ?>" placeholder="Zip code..." class="form-control">
+        <input type="text" name="zip_code" value="<?= $zip_code ?>" placeholder="Zip code..." class="form-control">
     </div>
     <div class="form-group">
         <input type="text" name="city" value="<?= $city ?>" placeholder="Your city..." class="form-control">

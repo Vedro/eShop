@@ -27,11 +27,12 @@ switch ($_SESSION['user']['gender'])
 
 if (isset($_GET['m']) && $_GET['m'] == 'update') 
 {
-    $msg_success .= "<div class='alert alert-success'>The product has been updated successfully.</div>";
+    $msg_success .= "<div class='alert alert-success'>Your profile has been updated successfully.</div>";
 }
 ?>
 
-<!-- <?= debug($_SESSION); ?> -->
+<!-- <?= debug($_SESSION['user']['id_user']); ?>
+<?= debug($_SESSION['user']); ?> -->
 
 <h1><?= $page ?></h1>
 
@@ -39,16 +40,10 @@ if (isset($_GET['m']) && $_GET['m'] == 'update')
 
 <p>Please find your informations below:</p>
 
-<!-- <ul>
-    <li><strong style="color:darkblue;"><?= $_SESSION['user']['firstname'] ?></strong></li>
-    <li><strong style="color:darkblue;"><?= $_SESSION['user']['lastname'] ?></strong></li>
-    <li><strong style="color:darkblue;"><?= $_SESSION['user']['email'] ?></strong></li>
-</ul> -->
-<!-- <?= debug($_SESSION['user']['picture'])?> -->
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
     <!-- /\ DON'T FORGET TO UPDATE THE PICTURE DYNAMICALLY /\ -->
-        <img src="uploads\img\ <?=$_SESSION['user']['picture']?>" alt="">
+        <img src="<?= URL . 'uploads/img/' . $_SESSION['user']['picture'] ?>" width="25%">
         <hr class="my-4">
         <h1 class="display-4"><?= $_SESSION['user']['pseudo'] ?></h1>
         <hr class="my-4">
