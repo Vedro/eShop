@@ -2,7 +2,7 @@
 
 require_once("inc/header.php");
 
-$page = "Login";
+$page = "Sign in";
 
 // debug($_POST);
 
@@ -50,18 +50,32 @@ if ($_POST)
 }
 ?>
 
-<h1><?= $page ?></h1>
+<h1 class="h3 mb-3 font-weight-normal"><?= $page ?></h1>
 
-<form action="" method="post">
-<?= $msg_error ?>
-    <div class="form-group">
-        <input type="text" name="pseudo" placeholder="Your pseudo..." class="form-control">
+
+<form class="form-signin" action="" method="post">
+    
+    <img class="mb-4" src="uploads/img/eshop_icon2.png" alt="" width="150" height="150">
+
+    <?= $msg_error ?>
+
+    <input type="text" id="inputEmail" class="form-control" placeholder="Username" name="pseudo">
+
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password">
+
+    <div class="checkbox mb-3">
+        <label>
+        <input type="checkbox" value="forgot-pass"> Forgot password?
+        </label>
     </div>
-    <div class="form-group">
-        <input type="password" name="password" placeholder="Your password..." class="form-control">
-    </div>
-    <input type="submit" value="login" class="btn btn-success btn-lg btn-block">
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" value="login">Sign in</button>
+    
 </form>
+
+
+
+
 
 <?php
 
