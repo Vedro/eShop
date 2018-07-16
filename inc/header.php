@@ -44,8 +44,8 @@
             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect</a>
             
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="<?php URL ?>login.php">Login</a>
-              <a class="dropdown-item" href="<?php URL ?>signup.php">Signup</a>
+              <a class="dropdown-item" href="<?php URL ?>login.php">Sign in</a>
+              <a class="dropdown-item" href="<?php URL ?>signup.php">Sign up</a>
             </div>
           </li>
 
@@ -85,7 +85,7 @@
 
 
 
-    <main role="main" class="container-fluid">
+    <main role="main" class="container">
         <div class="starter-template">
 
 

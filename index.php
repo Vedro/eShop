@@ -7,7 +7,7 @@
 <h1 class="welcome"><?= $page ?></h1>
 <p class="lead">Please, feel free to buy a lot of stuff and spend all of your money. </p>
 
-<!--
+
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -23,22 +23,6 @@
       <img class="d-block w-100" src="photos/photo-6.jpg" alt="Third slide">
     </div>
   </div>
-</div>
--->
-
-
-
-<div id="carousel" class="carousel carousel-fade" data-ride="carousel">
-
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <div class="Outside"></div>
-      <div class="carousel-caption">
-      </div>
-    </div>
-   </div>
 </div>
 
 
