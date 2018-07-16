@@ -4,28 +4,42 @@
     $page = "Welcome on MyEshop.com !"
 ?>
 
-<h1><?= $page ?></h1>
-<p class="lead">Please, feel free to buy a lot of stuff and spend all of your money. Ki$$e$ !</p>
+<h1 class="welcome"><?= $page ?></h1>
+<p class="lead">Please, feel free to buy a lot of stuff and spend all of your money. </p>
 
+<!--
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="uploads/img/photo-1.jpg/800x400?auto=yes&bg=777&fg=555" alt="First slide">
+      <img class="d-block w-100" src="photos/photo-4.jpg" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="uploads/img/photo-2.jpg/800x400?auto=yes&bg=666&fg=444&text=Second slide" alt="Second slide">
+      <img class="d-block w-100" src="photos/photo-2.jpg" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="uploads/img/photo-3.jpg/800x400?auto=yes&bg=555&fg=333&text=Third slide" alt="Third slide">
+      <img class="d-block w-100" src="photos/photo-3.jpg" alt="Third slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="photos/photo-6.jpg" alt="Third slide">
     </div>
   </div>
 </div>
+-->
 
 
 
+<div id="carousel" class="carousel carousel-fade" data-ride="carousel">
 
-      
 
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <div class="Outside"></div>
+      <div class="carousel-caption">
+      </div>
+    </div>
+   </div>
+</div>
 
 
 

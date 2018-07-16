@@ -1,15 +1,54 @@
+/* *** CSS rules linked to the CAROUSEL ****** */
+html, body, .carousel,  .carousel-inner, .carousel-inner .item {
+  height: 100%;
+}
 
+.Outside {
+   background-image: url("photos/photo-3.jpg");
+   z-index: -2;
+   display: block;
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: 50% 50%;
+}
+
+/* **** CSS LINKED TO THE CART ************** */
+#product-eshop:hover {
+  transform: scale(1.05);
+  overflow: hidden;
+  transition: 1s;
+}
+
+/* Add the bubble on the cart */
+span.bubble
+{
+	color: white; 
+	text-align: center; 
+	width: 15px; 
+	height: 16px; 
+	border-radius: 15px; 
+	line-height: 15px; 
+	vertical-align: middle; 
+	background: red;
+	margin-left: 4px;
+	display: inline-block;
+	margin-right: 5px;
+	font-size: 10px;
+	font-family: arial;
+}
+
+
+
+/* CSS rules linked to the STARTER TEMPLATE */
 .starter-template 
 {
   padding: 3rem 1.5rem;
   text-align: center;
 }
 
-
-html,
-body {
-  height: 100%;
-}
 
 body {
   display: -ms-flexbox;
