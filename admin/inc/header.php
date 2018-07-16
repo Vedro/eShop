@@ -72,6 +72,12 @@ if (isset($_GET['a']) && $_GET['a'] == 'logout')
                   List of products
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="users_list.php">
+                  <span data-feather="file"></span>
+                  User list
+                </a>
+              </li>
             </ul>
           </div>
         </nav>

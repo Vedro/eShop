@@ -219,7 +219,6 @@ if($_POST)
 // $gender = (isset($_POST['gender'])) ? $_POST['gender'] : '';
 // $picture = (isset($_POST['picture'])) ? $_POST['picture'] : '';
 
-
 $pseudo = (isset($update_user)) ? $update_user['pseudo'] : '';
 $password = (isset($update_user)) ? $update_user['pwd'] : '';
 $firstname = (isset($update_user)) ? $update_user['firstname'] : '';
