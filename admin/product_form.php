@@ -126,6 +126,7 @@ $action = (isset($update_product)) ? "Update" : "Add";
 
 ?>
 
+
 <h1 class="h2"><?= $action ?></h1>
 
 <form action="" method="post" enctype="multipart/form-data">

@@ -1,7 +1,7 @@
 <?php
 require_once("inc/header.php");
 
-$page = "Signup";
+$page = "Sign up";
 
 // debug($_POST);
 if (isset($_GET['id']) && !empty($_GET['id']) && is_numeric($_GET['id'])) 
@@ -242,10 +242,16 @@ $action = (isset($update_user)) ? "Update" : "Sign Up";
 <!-- <?= debug($_POST) ?>
 <?= debug($_SESSION['user'])?> -->
 
-<h1><?= $action ?></h1>
+<h1 class="h3 mb-3 font-weight-normal"><?= $action ?></h1>
 
-<form action="" method="post" enctype="multipart/form-data">
-    <small id="emailHelp" class="form-text text-muted">We'll never use your datas for commercial use.</small>
+<form class="form-signin" action="" method="post" enctype="multipart/form-data">
+  
+    <img class="mb-4" src="uploads/img/eshop_icon2.png" alt="" width="150" height="150">
+
+    <small class="form-text text-muted"> Any information collected from our users will not be sold, shared, or rented to others in ways different from what is disclosed in our <a href="">privacy statement</a>.</small>
+
+    <br>
+  
     <?= $msg_error ?>
 
     <input type="hidden" name="id_user" value="<?= $id_user ?>">
@@ -304,8 +310,27 @@ $action = (isset($update_user)) ? "Update" : "Sign Up";
         }
     ?>
     </div>
-    <input type="submit" value="<?= $action ?>" class="btn btn-success btn-lg btn-block"> 
+      <div class="checkbox mb-2">
+        <label>
+        <input type="checkbox" value="remember-me"> Subscribe to our monthly newsletter
+        </label>
+    </div>
+    <input type="submit" value="<?= $action ?>" class="btn btn-primary btn-lg btn-block"> 
+
 </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <?php
     require_once("inc/footer.php");
